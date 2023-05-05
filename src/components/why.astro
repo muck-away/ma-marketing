@@ -1,0 +1,35 @@
+---
+import WhyList from "~/components/why-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+
+const frameworks: Array<CompatibilityItem> = [
+  {
+    title: "It's easy to get started, our software is simple and intuitive",
+    icon: "mdi:square-small",
+  },
+  {
+    title: "We provide real-time insights and reporting, so you always know the status of your jobs",
+    icon: "mdi:square-small",
+  },
+  {
+    title: "Our solution is designed specifically for the haulage industry, so it meets the unique needs of your business",
+    icon: "mdi:square-small",
+  },
+  {
+    title: "We offer competitive pricing and excellent customer support, so you can be confident that you're getting the best value for your investment",
+    icon: "mdi:square-small",
+  },
+  {
+    title: "Our app is available on any platform, so you can access it from anywhere",
+    icon: "mdi:square-small",
+  },
+];
+---
+
+<ContentSection title="Why Choose Muck Away?" id="why">
+  <WhyList items={frameworks}
+    title="Frameworks"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />
+</ContentSection>

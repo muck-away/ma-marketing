@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon";
+import type { CompatibilityItem } from "~/types";
+
+export interface Props {
+  items: Array<CompatibilityItem>;
+  title: string;
+  url: string;
+}
+
+const { items, title, url } = Astro.props;
+---
+
+<div class="w-full max-w-6xl space-y-2">
+  <div class="relative px-6 pb-4 pt-8">
+    <ul class="">
+      {
+        items.map((item) => (
+          <li class="flex flex-col items-start gap-2 pb-4">
+            <div class="flex flex-row">
+              <Icon class="inline h-12 pr-2 text-primary" style="min-width: 4rem" name={item.icon} />
+              <span class="flex justify-center items-center">
+                <span class="align-middle">{item.title}</span>
+              </span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

@@ -1,13 +1,18 @@
 ---
 import { Icon } from "astro-icon";
-import ThemeSwitcher from "~/components/theme-switcher.astro";
 import type { NavItem } from "~/types";
+import { Picture } from "@astrojs/image/components";
+import logoImage from "~/assets/logo-without-text.png";
 
 const navItems: Array<NavItem> = [
-  { title: "Features", url: "#features" },
-  { title: "Compatibility", url: "#compatibility" },
-  { title: "Showcase", url: "#showcase" },
+  { title: "Welcome", url: "#welcome" },
+  { title: "Benefits", url: "#benefits" },
+  { title: "Why?", url: "#why" },
+  { title: "Get started", url: "#get-started" },
 ];
+
+const widths = [450, 800];
+const sizes = "(max-width: 30%)";
 ---
 
 <header
@@ -16,8 +21,6 @@ const navItems: Array<NavItem> = [
 >
   <a class="flex items-center gap-3 hover:!text-default" href="#">
     <h1 class="sr-only">Astro</h1>
-    <Icon name="logomark" class="h-10" />
-    <Icon name="wordmark" class="hidden h-4 sm:block" />
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -42,7 +45,6 @@ const navItems: Array<NavItem> = [
       >
         <Icon pack="mdi" name="menu" class="h-8" />
       </button>
-      <ThemeSwitcher />
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
       <div class="fixed inset-0 bg-default px-8 py-4 text-default">
@@ -58,7 +60,15 @@ const navItems: Array<NavItem> = [
             </button>
           </header>
           <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
+            <div style="max-width: 30%">
+              <Picture
+                src={logoImage}
+                widths={widths}
+                sizes={sizes}
+                loading="eager"
+                alt="A floating astronaut in a space suit"
+              />
+            </div>
           </div>
           <nav>
             <ul class="flex flex-col">

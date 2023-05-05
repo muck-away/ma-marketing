@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon";
+import ContentSection from "~/components/content-section.astro";
+import type { FeatureItem } from "~/types";
+
+const features: Array<FeatureItem> = [
+  {
+    title: "Efficiency",
+    description:
+      "Streamline your haulage process and improve efficiency",
+    icon: "mdi:speedometer",
+  },
+  {
+    title: "Simple",
+    description:
+      "Assign contracts to drivers with ease and track their progress",
+    icon: "mdi:check",
+  },
+  {
+    title: "Reporting",
+    description:
+      "Monitor job progress in real-time with detailed insights and reports",
+    icon: "mdi:chart-timeline-variant-shimmer",
+  },
+  {
+    title: "Reliability",
+    description:
+      "Reduce the risk of errors and delays with our intuitive software solution",
+    icon: "mdi:shield-check",
+  },
+  {
+    title: "Receipts",
+    description:
+      "Print receipts and send digital copies within the app",
+    icon: "mdi:receipt",
+  },
+  {
+    title: "Mobile access",
+    description:
+      "Access the mobile app on both iOS and Android devices",
+    icon: "mdi:tablet-cellphone",
+  },
+];
+---
+
+<ContentSection title="Benefits" id="benefits">
+  <Fragment slot="lead">
+    Our <span class="text-primary">cross platform</span> system makes it easy to create contracts, assign vehicles and drivers, and track progress in <span class="text-primary">real-time</span>.
+  </Fragment>
+  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map(({ title, description, icon }) => (
+        <li class="text-primary flex flex-col items-center gap-4 p-6">
+          <div class="h-16 w-16 rounded-full border-2 border-current p-3">
+            <Icon name={icon} />
+          </div>
+          <p class="text-center font-extrabold text-xl">{title}</p>
+          <p class="text-white text-center font-extrabold text text-sm">{description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</ContentSection>
